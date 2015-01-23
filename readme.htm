@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<META name="robots" content="none">
+<META name="robots" content="noindex, nofollow">
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 6.5.0.0 for Windows">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>History</TITLE>
+</HEAD>
+<BODY>
+<P><B>April 24, 2002</B><BR>
+<BR>
+*** Distribution resumed ***<BR>
+<BR>
+Distribution has been resumed with password protection.<BR>
+</P>
+<P align="JUSTIFY"><B>November 30, 1999</B></P>
+<P align="JUSTIFY">*** Agreement with the terms of license ***</P>
+<P align="JUSTIFY">It is now required to hit the agreement button with the terms of license
+to proceed to the download page.</P>
+<P align="JUSTIFY"><B>November 10, 1999</B></P>
+<P align="JUSTIFY">*** Changes in distribution format ***</P>
+<P align="JUSTIFY">The source codes (including sample programs) are distributed only in archives
+in &quot;tar.gz&quot; format and in &quot;zip&quot; format. <BR>
+Also, the manual is now provided as a single PDF file in English as well
+as in Japanese.</P>
+<P align="JUSTIFY"><B>May 13, 1998</B></P>
+<P align="JUSTIFY">*** Bug report on the routine hshldr in small group***</P>
+<P align="JUSTIFY">I have added the statement</P>
+<P align="JUSTIFY">c(k)=0.0d0</P>
+<P align="JUSTIFY">6 lines below the statement number 20 to clear the array c. I thank Dr.
+Tota Nakamura for pointing this out.</P>
+<P align="JUSTIFY"><B>December 2, 1997</B></P>
+<P align="JUSTIFY">*** Corrections on error criteria ***</P>
+<P align="JUSTIFY">Real numbers were identified with zero when they were less than 1.d-40
+or sometimes 1.d-50 in small and common groups. This may cause troubles
+in some compilers. I have set the criterion to 1.d-13. I thank Dr.Tota
+Nakamura for pointing this out.</P>
+<P align="JUSTIFY"><B>October 11, 1994</B></P>
+<P align="JUSTIFY">** Bug report in the routine ivn2z in the Medium Group **</P>
+<P align="JUSTIFY">The 5th and 6th lines from do 10 loop:</P>
+<P align="JUSTIFY">call cg2(.......,itr)</P>
+<P align="JUSTIFY">if(itr.ge.idim.or.itr.ge.500)then</P>
+<P align="JUSTIFY">All three &quot;itr&quot; in these statements should be renamed as &quot;iterat&quot;.
+I thank Mr. Narushima and Dr. Nakamura of Univ. Tsukuba for pointing out
+this bug.</P>
+<P align="JUSTIFY"><B>February 4, 1994</B></P>
+<P align="JUSTIFY">*** FAST VERSION OF sz ***</P>
+<P align="JUSTIFY">A faster version of the routine sz has been developed by Tota Nakamura
+of University of Tsukuba. The routine name is sztn and can be used in the
+same manner as sz. sztn is faster than sz and szdy, the latter being developed
+by Prof. D. Yoshioka. The source code is added to the last part of the
+COMMON group. I thank Dr. Nakamura for allowing me to distribute it.</P>
+<P align="JUSTIFY"><B>May 10, 1993</B></P>
+<P align="JUSTIFY">*** FAST VERSION OF sz ***</P>
+<P align="JUSTIFY">A faster version of the routine sz has been developed by Daijiro Yoshioka
+of University of Tokyo. The routine name is szdy and can be used in the
+same manner as sz. The source code is added to the last part of the COMMON
+group. I thank Professor Yoshioka for allowing me to distribute it.</P>
+<P align="JUSTIFY"><B>October 1, 1992</B></P>
+<P align="JUSTIFY">Troubles were reported in the normalization loops in subroutines. An overflow
+may happen in loops like</P>
+<P align="JUSTIFY">--------------------------------------------------------*</P>
+<P align="JUSTIFY">dnorm=0.d0</P>
+<P align="JUSTIFY">do 10 j=1,idim</P>
+<P align="JUSTIFY">10 dnorm=dnorm+x(j)**2</P>
+<P align="JUSTIFY">--------------------------------------------------------*</P>
+<P align="JUSTIFY">if some of x(j) are too large, which may be the case in extreme cases.
+This type of do loop appears in many places. If you encounter an overflow
+(or underflow) trouble, please try inserting a checking loop before the
+above loop. For instance,</P>
+<P align="JUSTIFY">*--------------------------------------------------------*</P>
+<P align="JUSTIFY">absmax=0.d0</P>
+<P align="JUSTIFY">do 5 j=1,idim</P>
+<P align="JUSTIFY">5 absmax=max(absmax,abs(x(j)))</P>
+<P align="JUSTIFY">if(absmax.gt.1.d50)then</P>
+<P align="JUSTIFY">do 6 j=1,idim</P>
+<P align="JUSTIFY">6 x(j)=x(j)/absmax</P>
+<P align="JUSTIFY">end if</P>
+<P align="JUSTIFY">*---------------------------------------------------------*</P>
+<P align="JUSTIFY">No change will be implemented in the original source code because the above
+trouble seems a very rare case.</P>
+<P align="JUSTIFY"><B>August 1, 1991</B></P>
+<P align="JUSTIFY">The precision limit 1.0d-25 for degeneracy check vec3 of SMALL group and
+vec12 of COMMON group has been changed to 1.0d-13.</P>
+<P align="JUSTIFY">The following expressions:</P>
+<P align="JUSTIFY">if(abs(E(k)-e(km)).gt.1.d-13)then</P>
+<P align="JUSTIFY">else if(abs(E(k)-e(km)).gt.1.d-13)then</P>
+</BODY>
+</HTML>
